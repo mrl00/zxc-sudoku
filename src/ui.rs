@@ -1,8 +1,8 @@
+use ratatui::Frame;
 use ratatui::layout::{Constraint, Direction, Layout, Rect};
 use ratatui::style::{Color, Modifier, Style, Stylize};
 use ratatui::text::{Line, Span};
 use ratatui::widgets::Paragraph;
-use ratatui::Frame;
 
 use crate::app::App;
 
@@ -124,8 +124,7 @@ fn render_board(frame: &mut Frame, area: Rect, app: &App) {
             let is_selected = r == app.cursor_row && c == app.cursor_col;
             let is_same_row = r == app.cursor_row;
             let is_same_col = c == app.cursor_col;
-            let is_same_block =
-                (r / 3 == app.cursor_row / 3) && (c / 3 == app.cursor_col / 3);
+            let is_same_block = (r / 3 == app.cursor_row / 3) && (c / 3 == app.cursor_col / 3);
             let is_highlighted = is_same_row || is_same_col || is_same_block;
 
             let has_dup = num != 0 && app.game.cell_has_duplicate(r, c);
