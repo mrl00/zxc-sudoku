@@ -218,19 +218,17 @@ fn find_empty(board: &[[u8; SIZE]; SIZE]) -> Option<(usize, usize)> {
 }
 
 fn is_safe(board: &[[u8; SIZE]; SIZE], row: usize, col: usize, num: u8) -> bool {
-    for i in 0..SIZE {
-        if board[row][i] == num {
-            return false;
-        }
-        if board[i][col] == num {
-            return false;
-        }
+    if board[row].contains(&num) {
+        return false;
     }
-    let br: usize = (row / BOX) * BOX;
+    if board.iter().any(|r| r[col] == num) {
+        return false;
+    }
+    let br = (row / BOX) * BOX;
     let bc = (col / BOX) * BOX;
-    for r in br..br + BOX {
-        for c in bc..bc + BOX {
-            if board[r][c] == num {
+    for block_row in board.iter().skip(br).take(BOX) {
+        for block_cell in block_row.iter().skip(bc).take(BOX) {
+            if *block_cell == num {
                 return false;
             }
         }
