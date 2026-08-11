@@ -1,0 +1,17 @@
+# Build artifacts
+/target
+
+# Backup files
+*.swp
+*.swo
+*~
+*.bak
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
