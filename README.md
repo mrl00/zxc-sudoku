@@ -1,56 +1,56 @@
 # zxc-sudoku
 
-Sudoku no terminal feito com Rust e ratatui.
+Terminal-based Sudoku game built with Rust and ratatui.
 
-## Funcionalidades
+## Features
 
-- Geração automática de puzzles com backtracking
-- 3 níveis de dificuldade (Fácil, Médio, Difícil)
-- Sistema de dicas
-- Detecção em tempo real de duplicatas
-- Highlighting de linha/coluna/bloco
-- Interface colorida no terminal
+- Automatic puzzle generation with backtracking
+- 3 difficulty levels (Easy, Medium, Hard)
+- Hint system
+- Real-time duplicate detection
+- Row/column/block highlighting
+- Colorful terminal interface
 
-## Pré-requisitos
+## Prerequisites
 
-- Rust 2024 ou superior
+- Rust 2024 or later
 
-## Instalação e execução
+## Installation and usage
 
 ```bash
-# Clonar o repositório
-git clone <url-do-repositorio>
+# Clone the repository
+git clone <repository-url>
 cd zxc-sudoku
 
-# Compilar e executar (debug)
+# Build and run (debug)
 cargo run
 
-# Compilar e executar (release, otimizado)
+# Build and run (release, optimized)
 cargo run --release
 ```
 
-## Controles
+## Controls
 
-| Tecla | Ação |
+| Key | Action |
 |---|---|
-| Setas | Mover cursor |
-| `1`-`9` | Inserir número |
-| `Backspace`/`Delete` | Apagar célula |
-| `H` | Dica (revela resposta) |
-| `R` | Novo jogo |
-| `D` | Alterar dificuldade |
-| `Q` / `Esc` | Sair |
+| Arrow keys | Move cursor |
+| `1`-`9` | Insert number |
+| `Backspace`/`Delete` | Clear cell |
+| `H` | Hint (reveal answer) |
+| `R` | New game |
+| `D` | Change difficulty |
+| `Q` / `Esc` | Quit |
 
-## Estrutura do projeto
+## Project structure
 
 ```
 src/
-├── main.rs    # Ponto de entrada e loop de eventos
-├── app.rs     # Estado da aplicação
-├── game.rs    # Lógica Sudoku
-└── ui.rs      # Renderização no terminal
+├── main.rs    # Entry point and event loop
+├── app.rs     # Application state
+├── game.rs    # Sudoku logic
+└── ui.rs      # Terminal rendering
 ```
 
-## Licença
+## License
 
 MIT
