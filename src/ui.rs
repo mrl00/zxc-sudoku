@@ -1,8 +1,8 @@
+use ratatui::Frame;
 use ratatui::layout::{Constraint, Direction, Layout, Rect};
 use ratatui::style::{Color, Modifier, Style, Stylize};
 use ratatui::text::{Line, Span};
 use ratatui::widgets::Paragraph;
-use ratatui::Frame;
 
 use crate::app::App;
 
@@ -91,15 +91,15 @@ fn render_board(frame: &mut Frame, area: Rect, app: &App) {
     let mut row_dup = [false; SIZE];
     let mut col_dup = [false; SIZE];
     let mut block_dup = [[false; 3]; 3];
-    for r in 0..SIZE {
-        row_dup[r] = app.game.row_has_duplicate(r);
+    for (r, row_dup) in row_dup.iter_mut().enumerate() {
+        *row_dup = app.game.row_has_duplicate(r);
     }
-    for c in 0..SIZE {
-        col_dup[c] = app.game.col_has_duplicate(c);
+    for (c, col_dup) in col_dup.iter_mut().enumerate() {
+        *col_dup = app.game.col_has_duplicate(c);
     }
-    for br in 0..3 {
-        for bc in 0..3 {
-            block_dup[br][bc] = app.game.block_has_duplicate(br * 3, bc * 3);
+    for (br, block_row) in block_dup.iter_mut().enumerate() {
+        for (bc, block_cell) in block_row.iter_mut().enumerate() {
+            *block_cell = app.game.block_has_duplicate(br * 3, bc * 3);
         }
     }
 
@@ -124,8 +124,7 @@ fn render_board(frame: &mut Frame, area: Rect, app: &App) {
             let is_selected = r == app.cursor_row && c == app.cursor_col;
             let is_same_row = r == app.cursor_row;
             let is_same_col = c == app.cursor_col;
-            let is_same_block =
-                (r / 3 == app.cursor_row / 3) && (c / 3 == app.cursor_col / 3);
+            let is_same_block = (r / 3 == app.cursor_row / 3) && (c / 3 == app.cursor_col / 3);
             let is_highlighted = is_same_row || is_same_col || is_same_block;
 
             let has_dup = num != 0 && app.game.cell_has_duplicate(r, c);

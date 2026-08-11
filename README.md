@@ -1,4 +1,8 @@
 # zxc-sudoku
+[![CI](https://github.com/mrl00/zxc-sudoku/actions/workflows/ci.yml/badge.svg)](https://github.com/mrl00/zxc-sudoku/actions/workflows/ci.yml)
+[![CI](https://github.com/mrl00/zxc-sudoku/actions/workflows/ci.yml/badge.svg)](https://github.com/mrl00/zxc-sudoku/actions/workflows/ci.yml)
+[![CI](https://github.com/mrl00/zxc-sudoku/actions/workflows/ci.yml/badge.svg)](https://github.com/mrl00/zxc-sudoku/actions/workflows/ci.yml)
+[![CI](https://github.com/mrl00/zxc-sudoku/actions/workflows/ci.yml/badge.svg)](https://github.com/mrl00/zxc-sudoku/actions/workflows/ci.yml)
 
 Terminal-based Sudoku game built with Rust and ratatui.
 
